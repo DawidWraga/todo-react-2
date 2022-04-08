@@ -1,16 +1,16 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import DeleteModal from './DeleteModal.js';
-import SVG from './SVG.js';
+import SvgX from './svg/SvgX.js';
+import SvgCheck from './svg/SvgCheck.js';
 
 function Todo({ todo, setTodos }) {
-	const crossIcon = useRef();
-	const targetTodoId = todo.id;
+	const { id, name, complete } = todo;
 	const [modalIsOpen, setModalIsOpen] = useState(false);
 
 	function toggleTodo() {
 		setTodos((prevTodos) => {
 			const newTodos = [...prevTodos];
-			const todo = newTodos.find((todo) => todo.id === targetTodoId);
+			const todo = newTodos.find((newTodo) => newTodo.id === id);
 			todo.complete = !todo.complete;
 			return newTodos;
 		});
@@ -22,36 +22,24 @@ function Todo({ todo, setTodos }) {
 
 	return (
 		<div
-			className="p-2 border-y flex justify-between transition-all"
-			onMouseEnter={() => {
-				crossIcon.current.classList.remove('hidden');
-			}}
-			onMouseLeave={() => {
-				crossIcon.current.classList.add('hidden');
-			}}
+			key={id}
+			className="todosRow border-b flex justify-between transition-all duration-200 group "
 		>
-			<label>
-				<SVG
-					i="check"
-					classes="relative hover:cursor-pointer transition-colors mr-2"
-					color={todo.complete && 'green'}
-				/>
-				<input
-					className="absolute opacity-0 "
-					type="checkbox"
-					onChange={toggleTodo}
-				></input>
-				{todo.name}
-			</label>
-			<button ref={crossIcon} className="hidden" onClick={showDeleteModal}>
-				<SVG i="X" />
-			</button>
+			<div className="flex items-center">
+				<SvgCheck className="mr-1" complete={complete} onClick={toggleTodo} />
+				<p className="inline-block mx-1">{name}</p>
+			</div>
+
+			<SvgX
+				className="invisible group-hover:visible"
+				onClick={showDeleteModal}
+			/>
 
 			{modalIsOpen && (
 				<DeleteModal
 					setModalIsOpen={setModalIsOpen}
 					setTodos={setTodos}
-					targetTodoId={targetTodoId}
+					targetTodoId={id}
 				/>
 			)}
 		</div>

@@ -3,9 +3,9 @@ import Todo from './Todo.js';
 
 function Todolist({ todos, setTodos }) {
 	return (
-		<div className="todoList shadow-lg mt-2 bg-white">
+		<div className="overflow-y-auto h-[448px]">
 			{todos.map((todo) => {
-				return <Todo key={todo.id} todo={todo} setTodos={setTodos} />;
+				return <Todo todo={todo} setTodos={setTodos} />;
 			})}
 		</div>
 	);

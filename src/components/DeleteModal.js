@@ -17,15 +17,15 @@ function DeleteModal({ setModalIsOpen, setTodos, targetTodoId }) {
 			<div className="modal shadow p-5">
 				<p className="text-xl my-4">are you sure?</p>
 				<button
-					className="mx-3 my-1 p-2 border-2 rounded-md text-white bg-red-500 hover:text-lg transition-all"
-					onClick={deleteTodoHandler}
+					className="btn btn-md text-white bg-red-500 "
+					onClick={() => {
+						deleteTodoHandler();
+						hideModalHandler();
+					}}
 				>
 					Delete
 				</button>
-				<button
-					className="mx-3 my-1 p-2 border-2 rounded-md bg-gray-50 hover:text-lg transition-all"
-					onClick={hideModalHandler}
-				>
+				<button className="btn btn-md bg-gray-50" onClick={hideModalHandler}>
 					Cancel
 				</button>
 			</div>

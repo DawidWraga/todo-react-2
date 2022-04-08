@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Todolist from './components/Todolist';
 import { v4 as uuidv4 } from 'uuid';
+import ListFooter from './components/ListFooter';
 
 function App() {
 	const [todos, setTodos] = useState([]);
@@ -27,33 +28,30 @@ function App() {
 		todoNameRef.current.value = null;
 	}
 
-	function clearHandler() {
-		setTodos((prevTodos) => {
-			return [...prevTodos].filter((todo) => !todo.complete);
-		});
-	}
-
 	return (
 		<>
-			<div className="bg-blue-600 h-[300px] w-screen fixed top-0 z-10"></div>
-			<div className="bg-white h-[300px] w-screen fixed top-0 z-0"></div>
-			<div className="w-80 min-h-[400px] relative top-40 m-auto z-10">
-				<div className="flex justify-between border rounded-sm py-1 px-3 shadow-lg bg-white">
+			<div className="bg-blue-600 h-[305px] w-screen fixed top-0 z-10" />
+			<div className="bg-white h-[300px] w-screen fixed top-0 z-0" />
+
+			<div className="w-11/12 sm:w-4/5 max-w-[550px] min-h-[400px] relative top-40 m-auto z-10">
+				<div className="todosRow flex justify-between border rounded py-1 px-3 shadow-lg bg-white">
 					<input
-						className="w-10/12 flex justify-between transition-colors"
+						className="w-10/12 flex justify-between p-2"
 						ref={todoNameRef}
 						type="text"
 						onKeyPress={(ev) => {
 							ev.key === 'Enter' && addTodoHandler();
 						}}
 					></input>
-					<button class="w-2/12 opacity-50" onClick={addTodoHandler}>
+					<button class="btn w-2/12 opacity-50" onClick={addTodoHandler}>
 						Add
 					</button>
 				</div>
 
-				<Todolist todos={todos} setTodos={setTodos} />
-				<button onClick={clearHandler}>clear</button>
+				<div className="h-[504px]  shadow-2xl mt-4 bg-white rounded">
+					<Todolist todos={todos} setTodos={setTodos} />
+					<ListFooter todos={todos} setTodos={setTodos} />
+				</div>
 			</div>
 		</>
 	);

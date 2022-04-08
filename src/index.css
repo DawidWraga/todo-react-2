@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 * {
-	box-sizing: border-box;
-	/* border: 1px solid red; */
+	font-family: 'Roboto', sans-serif;
 }
 
 .modal {
@@ -28,4 +27,22 @@
 	height: 100vh;
 	top: 0;
 	left: 0;
+}
+
+@layer components {
+	.btn {
+		@apply relative hover:cursor-pointer hover:scale-110 hover:bottom-px active:top-px transition;
+	}
+
+	.btn-md {
+		@apply mx-3 my-1 p-2 border-2 rounded-md shadow;
+	}
+
+	.todosRow {
+		@apply p-3 h-[56px];
+	}
+
+	.footer-btn {
+		@apply btn mx-1 sm:mx-3 hover:text-slate-700;
+	}
 }
