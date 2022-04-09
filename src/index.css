@@ -31,7 +31,7 @@
 
 @layer components {
 	.btn {
-		@apply relative hover:cursor-pointer hover:scale-110 hover:bottom-px active:top-px transition;
+		@apply hover:cursor-pointer hover:scale-110 hover:-translate-y-px active:translate-y-[1px] transition;
 	}
 
 	.btn-md {
@@ -43,6 +43,18 @@
 	}
 
 	.footer-btn {
-		@apply btn mx-1 sm:mx-3 hover:text-slate-700;
+		@apply btn mx-1 sm:mx-3 hover:contrast-150 hover:brightness-90;
 	}
+
+	.active {
+		@apply text-sky-600 font-semibold;
+	}
+}
+
+.title {
+	font-family: 'Comfortaa', cursive;
+}
+
+.bg-img {
+	background-position-y: 15%;
 }

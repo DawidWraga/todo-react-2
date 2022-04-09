@@ -1,9 +1,9 @@
 import React from 'react';
 import Backdrop from './Backdrop';
 
-function DeleteModal({ setModalIsOpen, setTodos, targetTodoId }) {
+function DeleteModal({ setModalIsOpen, setAllTodos, targetTodoId }) {
 	function deleteTodoHandler() {
-		setTodos((prevTodos) => {
+		setAllTodos((prevTodos) => {
 			return [...prevTodos].filter((todo) => todo.id !== targetTodoId);
 		});
 	}

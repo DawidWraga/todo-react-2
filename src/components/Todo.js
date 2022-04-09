@@ -3,12 +3,12 @@ import DeleteModal from './DeleteModal.js';
 import SvgX from './svg/SvgX.js';
 import SvgCheck from './svg/SvgCheck.js';
 
-function Todo({ todo, setTodos }) {
+function Todo({ todo, setAllTodos }) {
 	const { id, name, complete } = todo;
 	const [modalIsOpen, setModalIsOpen] = useState(false);
 
 	function toggleTodo() {
-		setTodos((prevTodos) => {
+		setAllTodos((prevTodos) => {
 			const newTodos = [...prevTodos];
 			const todo = newTodos.find((newTodo) => newTodo.id === id);
 			todo.complete = !todo.complete;
@@ -21,12 +21,9 @@ function Todo({ todo, setTodos }) {
 	}
 
 	return (
-		<div
-			key={id}
-			className="todosRow border-b flex justify-between transition-all duration-200 group "
-		>
+		<div className="todosRow border-b flex justify-between transition-all duration-200 group ">
 			<div className="flex items-center">
-				<SvgCheck className="mr-1" complete={complete} onClick={toggleTodo} />
+				<SvgCheck className="mr-2" complete={complete} onClick={toggleTodo} />
 				<p className="inline-block mx-1">{name}</p>
 			</div>
 
@@ -38,7 +35,7 @@ function Todo({ todo, setTodos }) {
 			{modalIsOpen && (
 				<DeleteModal
 					setModalIsOpen={setModalIsOpen}
-					setTodos={setTodos}
+					setAllTodos={setAllTodos}
 					targetTodoId={id}
 				/>
 			)}
