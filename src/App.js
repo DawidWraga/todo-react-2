@@ -3,6 +3,29 @@ import Todolist from './components/Todolist';
 import { v4 as uuidv4 } from 'uuid';
 import ListFooter from './components/ListFooter';
 import SvgTime from './components/svg/SvgTime.js';
+import SvgTodo from './components/svg/SvgTodo';
+
+//////////////////////TODO
+/*
+Make moon/ sun toggle between light/ dark mode
+Make everything bigger (main should fit )
+place | between "all, active, complete"
+refactor code: dempose into components
+
+
+maybe 
+remove 7 items left and instead have a small circle next to [all active complete] (ie displayMode state)  with number insire
+
+Reorder cards functionality
+
+
+
+TODO: TECHNOLOGIES
+Testing
+typescript
+redux 
+UML syntax in VSCODE
+*/
 
 function App() {
 	const LOCAL_STORAGE_KEY = 'todoApp.todos';
@@ -36,16 +59,16 @@ function App() {
 			<div className="bg-img bg-mountains-space bg-cover bg-no-repeat h-[415px] w-screen fixed top-0 z-10" />
 			<div className="bg-white h-[300px] w-screen fixed top-0 z-0" />
 
-			<div className="w-11/12 sm:w-4/5 max-w-[550px] min-h-[400px] top-20 relative sm:top-[200px] m-auto z-10 opacity-[97%]">
+			<div className="w-11/12 sm:w-4/5 max-w-[600px] min-h-[400px] top-20 relative sm:top-40 m-auto z-10 opacity-[97%]">
 				<div className="relative top-[-2rem] flex justify-between h-10">
-					<h1 className="title  tracking-widest text-white text-4xl font-semibold">
-						TODO
-					</h1>
+					<SvgTodo />
 					<SvgTime />
 				</div>
 				<div className="todosRow flex justify-between border rounded shadow-lg p-0 bg-white relative">
 					<input
-						className="w-full flex justify-between px-4 py-auto rounded  focus:ring-1 focus:ring-sky-500 before:focus:opacity-100"
+						className="w-full flex justify-between px-4 py-auto rounded  focus:ring-1 focus:ring-sky-500 break-words
+						
+						"
 						ref={todoNameRef}
 						type="text"
 						onKeyPress={(ev) => {
@@ -60,7 +83,7 @@ function App() {
 					</button>
 				</div>
 
-				<div className="h-[73vh] sm:h-[504px]  shadow-2xl mt-4 bg-white rounded">
+				<div className="h-[73vh] sm:h-[calc(10*3.5rem)]  shadow-2xl mt-4 bg-white rounded">
 					<Todolist
 						todos={todos}
 						setTodos={setTodos}

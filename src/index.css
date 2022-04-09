@@ -4,6 +4,7 @@
 
 * {
 	font-family: 'Roboto', sans-serif;
+	font-size: 18px;
 }
 
 .modal {
@@ -39,7 +40,7 @@
 	}
 
 	.todosRow {
-		@apply p-3 h-[56px];
+		@apply p-3 h-14;
 	}
 
 	.footer-btn {
@@ -57,4 +58,68 @@
 
 .bg-img {
 	background-position-y: 15%;
+}
+
+#title {
+	fill: transparent;
+	animation: fill 2s ease forwards 2s;
+}
+
+.titleLetterT {
+	stroke-dasharray: 144.88885498046875;
+	stroke-dashoffset: 144.88885498046875;
+	animation: line-appear 4s ease forwards 0.2s;
+}
+
+.titleLetterO1 {
+	stroke-dasharray: 219.93272399902344;
+	stroke-dashoffset: 219.93272399902344;
+	animation: line-appear 4s ease forwards 0.2s;
+	animation: line-appear 4s ease forwards 0.2s;
+}
+
+.titleLetterO2 {
+	stroke-dasharray: 208.92164611816406;
+	stroke-dashoffset: 208.92164611816406;
+	animation: line-appear 4s ease forwards 0.2s;
+	animation: line-appear 4s ease forwards 0.2s;
+}
+
+.titleLetterD {
+	stroke-dasharray: 219.93284606933594;
+	stroke-dashoffset: 219.93284606933594;
+	animation: line-appear 10s ease forwards 0.2s;
+}
+
+@keyframes line-appear {
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+
+@keyframes fill {
+	to {
+		fill: rgb(255, 255, 255);
+	}
+}
+
+.checked-svg {
+	transition-duration: 0.8s;
+}
+
+.tick {
+	fill: transparent;
+	stroke-dasharray: 24.591514587402344;
+	stroke-dashoffset: 24.591514587402344;
+	transition-timing-function: linear;
+	transition-duration: 0.8s;
+}
+
+.checked-yes {
+	stroke-dashoffset: 0;
+	fill: rgb(14 165 233);
+}
+.checked-no {
+	stroke-dashoffset: 24.591514587402344;
+	fill: transparent;
 }
