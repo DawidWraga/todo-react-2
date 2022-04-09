@@ -35,20 +35,11 @@ function SvgNight() {
 
 function SvgTime() {
 	const time = new Date().toLocaleString().split(', ')[1].slice(0, 2);
-	console.log(time);
 
 	const isDay = time > 3 && time < 18;
 
 	if (isDay) return <SvgDay />;
 	else return <SvgNight />;
-	// return (
-	// 	<>
-	// 		<SvgDay />
-	// 		<SvgNight />
-	// 	</>
-	// );
-
-	// return <div className="rounded bg-white w-5 h-5"></div>;
 }
 
 export default SvgTime;

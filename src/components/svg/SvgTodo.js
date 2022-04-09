@@ -6,9 +6,9 @@ function SvgTodo() {
 			<path
 				d="M16.696 39C16.184 39 15.736 38.824 15.352 38.472C15 38.088 14.824 37.64 14.824 37.128V1.51201H18.568V37.128C18.568 37.64 18.392 38.088 18.04 38.472C17.688 38.824 17.24 39 16.696 39ZM3.448 4.92001C2.936 4.92001 2.52 4.76001 2.2 4.44001C1.88 4.12001 1.72 3.72001 1.72 3.24001C1.72 2.72801 1.88 2.31201 2.2 1.99201C2.52 1.67201 2.936 1.51201 3.448 1.51201H29.992C30.504 1.51201 30.92 1.67201 31.24 1.99201C31.56 2.31201 31.72 2.72801 31.72 3.24001C31.72 3.72001 31.56 4.12001 31.24 4.44001C30.92 4.76001 30.504 4.92001 29.992 4.92001H3.448Z"
 				stroke="white"
-				stroke-width="2"
+				// stroke-width="2"
 				mask="url(#path-1-outside-1_2_5)"
-				class="titleLetterT"
+				className="titleLetterT"
 			/>
 		);
 	}
@@ -19,7 +19,7 @@ function SvgTodo() {
 				stroke="white"
 				stroke-width="2"
 				mask="url(#path-1-outside-1_2_5)"
-				class="titleLetterO1"
+				className="titleLetterO1"
 			/>
 		);
 	}
@@ -30,7 +30,7 @@ function SvgTodo() {
 				stroke="white"
 				stroke-width="2"
 				mask="url(#path-1-outside-1_2_5)"
-				class="titleLetterO2"
+				className="titleLetterO2"
 			/>
 		);
 	}
@@ -41,7 +41,7 @@ function SvgTodo() {
 				stroke="white"
 				stroke-width="2"
 				mask="url(#path-1-outside-1_2_5)"
-				class="titleLetterD"
+				className="titleLetterD"
 			/>
 		);
 	}

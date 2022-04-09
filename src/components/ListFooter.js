@@ -24,7 +24,7 @@ function ListFooter({ setTodos, allTodos, setAllTodos }) {
 				console.log('error invalid display mode');
 				break;
 		}
-	}, [displayMode, allTodos]);
+	}, [displayMode, allTodos, setTodos]);
 
 	return (
 		<div className="todosRow border-t flex justify-between text-xs xs:text-sm p-0 xs:p-3 text-slate-500 items-center flex-shrink">
