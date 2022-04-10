@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import DeleteModal from './DeleteModal.js';
 import SvgX from './svg/SvgX.js';
 import SvgCheck from './svg/SvgCheck.js';
+import { AppContext } from '../contexts/app-context.js';
 
-function Todo({ todo, setAllTodos }) {
+function Todo({ todo }) {
+	const { setAllTodos } = useContext(AppContext);
 	const { id, name, complete } = todo;
 	const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -21,10 +23,10 @@ function Todo({ todo, setAllTodos }) {
 	}
 
 	return (
-		<div className="todosRow border-b flex justify-between transition-all duration-200 group ">
+		<div className="todosRow border-b flex justify-between group ">
 			<div className="flex items-center">
 				<SvgCheck className="mr-2" complete={complete} onClick={toggleTodo} />
-				<p className="inline-block mx-1">{name}</p>
+				<p className="inline-block  mx-1">{name}</p>
 			</div>
 
 			<SvgX

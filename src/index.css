@@ -5,16 +5,18 @@
 * {
 	font-family: 'Roboto', sans-serif;
 	font-size: 18px;
+	@apply dark:text-white dark:border-slate-800;
+	transition: all 0.5s ease-in-out;
 }
 
 .modal {
 	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 	border-radius: 6px;
-	background-color: white;
+	/* background-color: white; */
 	padding: 1rem;
 	text-align: center;
 	width: 30rem;
-	z-index: 10;
+	z-index: 30;
 	position: fixed;
 	top: 20vh;
 	left: calc(50% - 15rem);
@@ -22,7 +24,7 @@
 
 .backdrop {
 	position: fixed;
-	z-index: 1;
+	z-index: 20;
 	background-color: rgba(0, 0, 0, 0.75);
 	width: 100%;
 	height: 100vh;
@@ -40,15 +42,23 @@
 	}
 
 	.todosRow {
-		@apply p-3 h-14;
+		@apply p-3 h-14 bg-white dark:bg-slate-700;
 	}
 
 	.footer-btn {
-		@apply btn mx-1 sm:mx-3 hover:contrast-150 hover:brightness-90;
+		@apply btn text-sm xs:text-lg  xs:mx-2 sm:mx-3 hover:contrast-150 hover:brightness-90;
 	}
 
 	.active {
-		@apply text-sky-600 font-semibold;
+		@apply text-sky-600 font-semibold !important;
+	}
+
+	.main {
+		@apply w-11/12 sm:w-4/5 max-w-[600px] min-h-[400px] top-16 relative sm:top-28 m-auto z-10 opacity-[97%];
+	}
+
+	.list-and-footer {
+		@apply h-[73vh] sm:h-[calc(10*3.5rem)]  shadow-2xl mt-4 bg-white dark:bg-slate-700 rounded;
 	}
 }
 
@@ -56,39 +66,40 @@
 	font-family: 'Comfortaa', cursive;
 }
 
-.bg-img {
-	background-position-y: 15%;
+.dark-bg-1-pos {
+	background-position-y: 0%;
 }
 
-#title {
-	fill: transparent;
-	animation: fill 2s ease forwards 2s;
+.light-bg-1-pos {
+	background-position-y: 60%;
 }
 
 .titleLetterT {
+	fill: transparent;
 	stroke-dasharray: 144.88885498046875;
 	stroke-dashoffset: 144.88885498046875;
-	animation: line-appear 4s ease forwards 0.2s;
+	animation: line-appear 4s ease forwards 0.2s, fill 2s ease forwards 1s;
 }
 
 .titleLetterO1 {
+	fill: transparent;
 	stroke-dasharray: 219.93272399902344;
 	stroke-dashoffset: 219.93272399902344;
-	animation: line-appear 4s ease forwards 0.2s;
-	animation: line-appear 4s ease forwards 0.2s;
-}
-
-.titleLetterO2 {
-	stroke-dasharray: 208.92164611816406;
-	stroke-dashoffset: 208.92164611816406;
-	animation: line-appear 4s ease forwards 0.2s;
-	animation: line-appear 4s ease forwards 0.2s;
+	animation: line-appear 4s ease forwards 0.7s, fill 2s ease forwards 1.5s;
 }
 
 .titleLetterD {
+	fill: transparent;
 	stroke-dasharray: 219.93284606933594;
 	stroke-dashoffset: 219.93284606933594;
-	animation: line-appear 10s ease forwards 0.2s;
+	animation: line-appear 4s ease forwards 1.2s, fill 2s ease forwards 2s;
+}
+
+.titleLetterO2 {
+	fill: transparent;
+	stroke-dasharray: 208.92164611816406;
+	stroke-dashoffset: 208.92164611816406;
+	animation: line-appear 4s ease forwards 1.7s, fill 1.8s ease forwards 2.5s;
 }
 
 @keyframes line-appear {
@@ -122,4 +133,11 @@
 .checked-no {
 	stroke-dashoffset: 24.591514587402344;
 	fill: transparent;
+}
+
+@media only screen and (max-width: 475px) {
+	.footer-btn {
+		@apply shadow border p-1 m-px rounded-xl mx-1;
+		font-size: 11px !important;
+	}
 }

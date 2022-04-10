@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { AppContext } from '../contexts/app-context';
 
-function ListFooter({ setTodos, allTodos, setAllTodos }) {
+function ListFooter() {
+	const { setTodos, allTodos, setAllTodos } = useContext(AppContext);
 	const [displayMode, setDisplayMode] = useState('all');
 
 	function clearHandler() {
@@ -27,11 +29,11 @@ function ListFooter({ setTodos, allTodos, setAllTodos }) {
 	}, [displayMode, allTodos, setTodos]);
 
 	return (
-		<div className="todosRow border-t flex justify-between text-xs xs:text-sm p-0 xs:p-3 text-slate-500 items-center flex-shrink">
-			<p className="mx-1 mr-1 sm:mr-2">
+		<div className="todosRow border-t flex justify-evenly xs:justify-between text-xs xs:text-sm p-0 xs:p-3 text-slate-500 items-center text-center">
+			<p className="mx-1 mr-1 sm:mr-2 text-sm xs:text-lg ">
 				{allTodos.filter((todo) => !todo.complete).length} items left
 			</p>
-			<div className="">
+			<div className="w-1/3 xs:w-1/2">
 				<button
 					onClick={() => setDisplayMode('all')}
 					className={`btn footer-btn ${displayMode === 'all' && 'active'}`}
@@ -51,7 +53,10 @@ function ListFooter({ setTodos, allTodos, setAllTodos }) {
 					Complete
 				</button>
 			</div>
-			<button onClick={clearHandler} className="btn footer-btn">
+			<button
+				onClick={clearHandler}
+				className="btn footer-btn xs:p-0 dark:text-white"
+			>
 				Clear complete
 			</button>
 		</div>

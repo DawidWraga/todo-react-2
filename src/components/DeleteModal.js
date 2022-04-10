@@ -14,7 +14,7 @@ function DeleteModal({ setModalIsOpen, setAllTodos, targetTodoId }) {
 
 	return (
 		<>
-			<div className="modal shadow p-5">
+			<div className="modal bg-white dark:bg-slate-800 shadow p-5">
 				<p className="text-xl my-4">are you sure?</p>
 				<button
 					className="btn btn-md text-white bg-red-500 "
@@ -25,7 +25,10 @@ function DeleteModal({ setModalIsOpen, setAllTodos, targetTodoId }) {
 				>
 					Delete
 				</button>
-				<button className="btn btn-md bg-gray-50" onClick={hideModalHandler}>
+				<button
+					className="btn btn-md bg-gray-50 dark:text-black"
+					onClick={hideModalHandler}
+				>
 					Cancel
 				</button>
 			</div>
