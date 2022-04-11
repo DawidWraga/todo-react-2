@@ -28,7 +28,7 @@ function InputBar() {
 				}}
 			></input>
 			<button
-				class="btn absolute bottom-3 right-4 opacity-50"
+				className="btn absolute bottom-3 right-4 opacity-50"
 				onClick={addTodoHandler}
 			>
 				Add

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import SvgTime from './svg/SvgTime.js';
 import SvgTodo from './svg/SvgTodo';
 
@@ -20,14 +20,9 @@ function TopBar() {
 			: document.body.classList.add('dark');
 	}, [dark]);
 
-	// prevent rerendering of title animation unless dark/light mode changes
-	const title = useMemo(() => {
-		return <SvgTodo />;
-	}, [dark]);
-
 	return (
 		<div className="relative top-[-1rem] flex justify-between h-10">
-			{title}
+			<SvgTodo />
 			<SvgTime dark={dark} setDark={setDark} />
 		</div>
 	);
